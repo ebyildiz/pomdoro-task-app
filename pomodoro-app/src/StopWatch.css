@@ -1,0 +1,66 @@
+
+
+div.timer-container > h1.timer-watch {
+    font-family: Roboto Mono;
+    font-size: 96px;
+    font-weight: 900;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+  }
+  
+  div.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    background-color: #403E5F;
+    border-radius: 30px;
+    width: 561px;
+    height: 165px;
+  }
+
+  div.stopwatch-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div.control-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    margin-right: 50px;
+  }
+
+  div.after-pause-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+  }
+
+.play-icon {
+    padding: 0px;
+    font-size: 50px;
+    color: #7972F8;
+    position: fixed
+}
+
+.pause-icon {
+    padding: 0px;
+    font-size: 50px;
+    color: #7972F8;
+    position: fixed;
+}
+
+
+  
