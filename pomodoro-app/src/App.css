@@ -7,3 +7,6 @@ body {
   place-items: center;
 }
 
+main {
+  margin: 50px;
+}

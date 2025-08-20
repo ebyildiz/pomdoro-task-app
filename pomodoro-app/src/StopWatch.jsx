@@ -17,8 +17,8 @@ export default function StopWatch() {
     const [breakSeconds, setBreakSeconds] = useState(300);
     const [mode, setMode] = useState('work')
     const [autoSwitch, setAutoSwitch] = useState(true);
-    const [playIcon, setPlayIcon] = useState(()=><MdPlayCircleOutline className='play-icon' />);
-    const [pauseIcon, setPauseIcon] = useState(()=><MdPauseCircleOutline className='pause-icon' />);
+    const [playIcon, setPlayIcon] = useState(() => <MdPlayCircleOutline className='play-icon' />);
+    const [pauseIcon, setPauseIcon] = useState(() => <MdPauseCircleOutline className='pause-icon' />);
 
 
     function startTimer() {
@@ -100,39 +100,35 @@ export default function StopWatch() {
         <>
 
             <div className='stopwatch-container'>
-                <div className='control-buttons'>
-                    <h1>Mode: {mode[0].toUpperCase() + mode.slice(1)}</h1>
-                    <Toggle>
-                        <Toggle.Off>
-                        <div className='after-pause-container'>
-                        {seconds === 0 && !isRunning?
-                                <Toggle.Button>
-                                    <Button className='start-button' onClick={startTimer} >Start</Button>
-                                </Toggle.Button>
-                                :
-                                <>
-                                <Button className='reset-button' onClick={resetTimer}>Reset</Button>
-                                    <Toggle.Button>
-                                        <Button className='resume-button' onClick={resumeTimer} onMouseEnter={hoverPlay} onMouseLeave={leavePLay} style={{padding:"0px", backgroundColor:"transparent"}}>
-                                            {playIcon}
-                                        </Button>
-                                    </Toggle.Button>
-                                </>
-                        }
-                            </div>
-                            
-                        </Toggle.Off>
-                        <Toggle.On>
-                                
+                <div className='control-mode-container'>
+                    <h1 className='mode-title'>Mode: {mode[0].toUpperCase() + mode.slice(1)}</h1>
 
-                                <Toggle.Button>
-                                    <Button className='stop-button' onClick={stopTimer} onMouseEnter={hoverPause} onMouseLeave={leavePause} style={{padding:"0px", backgroundColor:"transparent"}}>
-                                        {pauseIcon}
-                                    </Button>
-                                </Toggle.Button>
-                            
-                        </Toggle.On>
-                    </Toggle>
+                    <div className='control-buttons'>
+                        {!isRunning && seconds === 0 ?
+                            <Button className="start-button" onClick={startTimer} >
+                                Start
+                            </Button>
+                            :
+                            <>
+                                <Button className="reset-button" onClick={resetTimer} >
+                                    Reset
+                                </Button>
+
+                                <Button
+                                    className="playpause-button"
+                                    onClick={isRunning ? stopTimer : resumeTimer}
+                                    onMouseEnter={isRunning ? hoverPause : hoverPlay}
+                                    onMouseLeave={isRunning ? leavePause : leavePLay}
+                                    style={{ padding: "0px", backgroundColor: "transparent" }}
+                                >
+                                    {isRunning ? pauseIcon : playIcon}
+                                </Button>
+                            </>
+                        }
+
+
+                    </div>
+
                 </div>
                 <div className="timer-container">
                     <h1 className='timer-watch'>{timeString}</h1>

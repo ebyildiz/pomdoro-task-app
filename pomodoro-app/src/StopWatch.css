@@ -31,7 +31,7 @@ div.timer-container > h1.timer-watch {
     justify-content: center;
   }
 
-  div.control-buttons {
+  div.control-mode-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,6 +40,14 @@ div.timer-container > h1.timer-watch {
     margin-right: 50px;
   }
 
+  div.control-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 200px;
+  }
   div.after-pause-container {
     display: flex;
     flex-direction: row;
@@ -50,16 +58,26 @@ div.timer-container > h1.timer-watch {
 
 .play-icon {
     padding: 0px;
-    font-size: 50px;
+    font-size: 60px;
     color: #7972F8;
-    position: fixed
 }
 
 .pause-icon {
     padding: 0px;
-    font-size: 50px;
+    font-size: 60px;
     color: #7972F8;
-    position: fixed;
+}
+
+.mode-title {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: -15px;
+    background-color: #403E5F;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 20px;
 }
 
 
