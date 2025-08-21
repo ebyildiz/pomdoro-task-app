@@ -1,0 +1,53 @@
+
+div.task-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-button {
+    padding: 0px;
+    color: #7972F8;
+    border: #7972F8;
+    width: 50px;
+    height: 50px;
+
+}
+
+.task-icon {
+    padding: 0px;
+    font-size: 40px;
+    color: #7972F8;
+}
+
+
+textarea {
+    resize: none;
+    width: 426px;
+    max-width: 426px;
+    text-wrap: wrap;
+    field-sizing: content;
+    max-height: fit-content;
+    padding: 10px 30px;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #403E5F;
+    color: white;
+    border-radius: 20px;
+}
+
+textarea::placeholder {
+    color: white; 
+    opacity: 0.5;
+  }
+
+.task-icon.empty {
+    font-size: 37px;
+    object-fit: none;
+}
+
+.task-icon.checked {
+    font-size: 42px;
+}

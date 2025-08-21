@@ -80,5 +80,12 @@ div.timer-container > h1.timer-watch {
     border-radius: 20px;
 }
 
+.timer-and-visual {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
 
   

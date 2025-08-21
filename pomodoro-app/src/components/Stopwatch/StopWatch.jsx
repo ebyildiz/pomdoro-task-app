@@ -1,7 +1,8 @@
-import React, { useState, useEffect, use } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { SettingsContext } from '../SettingsProvider';
 import './StopWatch.css';
-import Toggle from './Toggle/index';
-import Button from './Button';
+import Toggle from '../Toggle/index';
+import Button from '../Button/Button';
 import { MdPlayCircleFilled } from "react-icons/md";
 import { MdPlayCircleOutline } from "react-icons/md";
 import { MdPauseCircleFilled } from "react-icons/md";
@@ -13,12 +14,15 @@ export default function StopWatch() {
 
     const [seconds, setSeconds] = useState(1490);
     const [isRunning, setIsRunning] = useState(false);
-    const [workSeconds, setWorkSeconds] = useState(1500);
-    const [breakSeconds, setBreakSeconds] = useState(300);
     const [mode, setMode] = useState('work')
-    const [autoSwitch, setAutoSwitch] = useState(true);
     const [playIcon, setPlayIcon] = useState(() => <MdPlayCircleOutline className='play-icon' />);
     const [pauseIcon, setPauseIcon] = useState(() => <MdPauseCircleOutline className='pause-icon' />);
+
+    const {workMinutes, setWorkMinutes, breakMinutes, setBreakMinutes, autoSwitch, setAutoSwitch } = useContext(SettingsContext);
+
+    const workSeconds = workMinutes * 60;
+    const breakSeconds = breakMinutes * 60;
+
 
 
     function startTimer() {
@@ -133,7 +137,6 @@ export default function StopWatch() {
                 <div className="timer-container">
                     <h1 className='timer-watch'>{timeString}</h1>
                 </div>
-
             </div>
 
         </>

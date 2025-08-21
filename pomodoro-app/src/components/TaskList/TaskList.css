@@ -1,0 +1,31 @@
+
+.task-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+div.task-list-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 30px;
+}
+
+
+div.task-list-header > h1 {
+    margin: 0;
+    font-size: 33px;
+    color: #221C39;
+    align-self: flex-start;
+}
+
+div.add-task-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
