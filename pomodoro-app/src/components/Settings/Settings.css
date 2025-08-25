@@ -1,0 +1,16 @@
+.settings-section {
+}
+
+
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    width: 561px;
+    height: 300px;
+    gap: 20px;
+    position: absolute;
+    background-color: #DACDFE;
+
+}
+

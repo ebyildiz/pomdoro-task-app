@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { SettingsContext } from '../SettingsProvider';
 import './StopWatch.css';
 import Toggle from '../Toggle/index';
@@ -7,18 +7,21 @@ import { MdPlayCircleFilled } from "react-icons/md";
 import { MdPlayCircleOutline } from "react-icons/md";
 import { MdPauseCircleFilled } from "react-icons/md";
 import { MdPauseCircleOutline } from "react-icons/md";
-
-
+import { SessionsContext } from '../../App'; // Adjust the import path as necessary
+import { TaskContext } from '../../App'; // Adjust the import path as necessary
 
 export default function StopWatch() {
-
-    const [seconds, setSeconds] = useState(1490);
+    const [seconds, setSeconds] = useState(3);
     const [isRunning, setIsRunning] = useState(false);
     const [mode, setMode] = useState('work')
     const [playIcon, setPlayIcon] = useState(() => <MdPlayCircleOutline className='play-icon' />);
     const [pauseIcon, setPauseIcon] = useState(() => <MdPauseCircleOutline className='pause-icon' />);
 
-    const {workMinutes, setWorkMinutes, breakMinutes, setBreakMinutes, autoSwitch, setAutoSwitch } = useContext(SettingsContext);
+    const { taskCompleted } = useContext(TaskContext);
+
+    const {workMinutes, breakMinutes, autoSwitch} = useContext(SettingsContext);
+
+    const { setSessionsList, lastSessionId } = useContext(SessionsContext);
 
     const workSeconds = workMinutes * 60;
     const breakSeconds = breakMinutes * 60;
@@ -27,7 +30,7 @@ export default function StopWatch() {
 
     function startTimer() {
         setIsRunning(true);
-        setSeconds(0);
+        setSeconds(mode === 'work' ? workSeconds : breakSeconds);
     }
 
     function stopTimer() {
@@ -37,31 +40,30 @@ export default function StopWatch() {
 
     function resetTimer() {
         setIsRunning(false);
-        setSeconds(0);
+        setSeconds(mode === 'work' ? workSeconds : breakSeconds);
     }
 
     function resumeTimer() {
         setIsRunning(true);
-        setSeconds(prevSeconds => prevSeconds);
         setPlayIcon(<MdPlayCircleOutline className='play-icon' />);
     }
 
-    let endSeconds;
-    if (mode === 'work') {
-        endSeconds = workSeconds;
-    }
-    else {
-        endSeconds = breakSeconds;
-    }
-
-    if (seconds === endSeconds) {
+    if (seconds === 0) {
         alert(`Time's up! You have completed your ${mode} session.`);
         setMode(prevMode => prevMode === 'work' ? 'break' : 'work');
+        if (mode === 'break') {
+            setSeconds(breakSeconds);
+            lastSessionId.current += 1; // Increment the session ID
+            setSessionsList(prevSessions => [...prevSessions, {duration:workMinutes, breakTime:breakMinutes, id:lastSessionId.current, taskCompleted:taskCompleted.current}]);
+            taskCompleted.current = 0; 
+        }
         if (autoSwitch) {
-            startTimer();
+            setIsRunning(true);
+            setSeconds(mode === 'work' ? breakSeconds : workSeconds);
         }
         else {
-            resetTimer();
+            setIsRunning(false);
+            setSeconds(mode === 'work' ? breakSeconds : workSeconds);
         }
     }
 
@@ -70,9 +72,9 @@ export default function StopWatch() {
         let interval;
         if (isRunning) {
             interval = setInterval(() => {
-                setSeconds(prevSeconds => prevSeconds + 1);
+                setSeconds(prevSeconds => prevSeconds - 1);
             }, 1000);
-        } else if (!isRunning && seconds !== 0) {
+        } else if (!isRunning && seconds !== workMinutes) {
             clearInterval(interval);
         }
         return () => clearInterval(interval);
@@ -80,7 +82,7 @@ export default function StopWatch() {
 
     var date = new Date(0);
     date.setSeconds(seconds); // specify value for SECONDS here
-    var timeString = date.toISOString().substring(11, 19);
+    var timeString = date.toISOString().substring(14, 19);
 
 
     function hoverPlay() {
