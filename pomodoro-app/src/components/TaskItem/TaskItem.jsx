@@ -5,7 +5,7 @@ import React from "react";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import { FaRegCircle } from "react-icons/fa";
 import "./TaskItem.css";
-import { TaskContext } from "../../App"; // Adjust the import path as necessary
+import { TaskContext } from "../../App";
 import { useContext } from "react";
 import { MdDeleteForever } from "react-icons/md";
 

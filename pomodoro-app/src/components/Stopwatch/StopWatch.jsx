@@ -8,9 +8,9 @@ import {
   MdPauseCircleFilled,
   MdPauseCircleOutline
 } from "react-icons/md";
-import { SessionsContext } from '../../App'; // Adjust if needed
-import { TaskContext } from '../../App';      // Adjust if needed
-import clickSfx from './timer.mp3';           // your audio file
+import { SessionsContext } from '../../App'; 
+import { TaskContext } from '../../App';     
+import clickSfx from './timer.mp3';       
 
 export default function StopWatch() {
   // contexts
@@ -23,7 +23,7 @@ export default function StopWatch() {
   const breakSeconds = (Number(breakMinutes) || 0) * 60;
 
   // state
-  const [mode, setMode] = useState('work');              // 'work' | 'break'
+  const [mode, setMode] = useState('work');            
   const [seconds, setSeconds] = useState(() => workSeconds);
   const [isRunning, setIsRunning] = useState(false);
 
@@ -37,7 +37,7 @@ export default function StopWatch() {
   // session number (badge)
   const currentSessionNumber = (sessionsList?.length || 0) + 1;
 
-  // ---- sound: play for ~2s max, no overlap
+  // ---- sound: play for ~0.5s max, no overlap
   const lastClickAudioRef = useRef(null);
   const playClick = (ms = 200) => {
     try {
@@ -186,7 +186,6 @@ export default function StopWatch() {
 
   return (
     <div className='stopwatch-container'>
-      {/* session badge in top-left */}
       <div className="session-badge" aria-live="polite" aria-atomic="true">
         #{currentSessionNumber}
       </div>
