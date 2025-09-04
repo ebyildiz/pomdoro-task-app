@@ -4,6 +4,8 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
+    margin-left: -15px;
+    margin-top:-40px;
 }
 
 div.task-list-header {
@@ -17,9 +19,12 @@ div.task-list-header {
 
 div.task-list-header > h1 {
     margin: 0;
-    font-size: 33px;
-    color: #221C39;
+    font-size: 25px;
+    color: #ffffff;
     align-self: flex-start;
+    border-bottom: 2px solid #a98aeb;
+    width: 700px;
+    margin-bottom: 15px
 }
 
 div.add-task-button-container {

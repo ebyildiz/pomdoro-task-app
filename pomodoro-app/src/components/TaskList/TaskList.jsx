@@ -29,11 +29,11 @@ export default function TaskList() {
     return (
         <section className="task-list-container">
             <div className="task-list-header">
-                <h1>Tasks:</h1>
+                <h1>tasks:</h1>
             </div>
             {taskElements}
             <div className="add-task-button-container">
-                <Button onClick={addNewTask}>Add New Task</Button>
+                <Button onClick={addNewTask}>+ Add New Task</Button>
             </div>
 
         </section>

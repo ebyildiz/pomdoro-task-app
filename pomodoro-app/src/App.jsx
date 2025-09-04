@@ -14,28 +14,31 @@ function App() {
   const [sessionsList, setSessionsList] = useState([]);
   const lastSessionId = useRef(0);
   const taskCompleted = useRef(0);
-  
+
   return (
     <main>
       <SettingsProvider>
-        <Settings />
-        <TaskContext.Provider value={{ taskCompleted }}>
         <SessionsContext.Provider value={{ sessionsList, setSessionsList, lastSessionId }}>
-        <StopWatch />
-        <div className='task-session-container'>
-          <TaskList />
-          <SessionsList />
-        </div>
+          <div className='top-bar'>
+            <SessionsList />
+            <Settings />
+          </div>
+
+          <TaskContext.Provider value={{ taskCompleted }}>
+
+            <StopWatch />
+            <div className='task-session-container'>
+              <TaskList />
+            </div>
+
+          </TaskContext.Provider>
         </SessionsContext.Provider>
-        </TaskContext.Provider>
       </SettingsProvider>
-
-
     </main>
 
   )
 }
 
 export default App
-export { SessionsContext }; 
+export { SessionsContext };
 export { TaskContext }

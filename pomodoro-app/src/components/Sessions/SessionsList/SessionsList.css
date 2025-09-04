@@ -1,15 +1,44 @@
-.sessions-list-container {
+/* This is the anchor for the dropdown */
+.sessions-section {
+    position: relative;
+    display: inline-block;
+    /* If a parent flex is centering, this pushes the button to the right edge: */
+    /* margin-left: auto; */
+  }
+  
+  /* The dropdown panel under the button */
+  .sessions-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;                   /* align the RIGHT edge under the button */
+    z-index: 1000;
+  
+    width: 360px;
+    max-height: 420px;
+  
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align content to the top */
-    justify-content: flex-start; /* Ensure no stretching */
-    margin-left: 60px;
-    width: 500px;
-
-}
-
-h1.sessions-title {
+    gap: 12px;
+  
+    padding: 16px;
+    border-radius: 12px;
+    background: #DACDFE;
+    box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  }
+  
+  /* Scroll area for the list items */
+  .sessions-scroll {
+    overflow: auto;
+    max-height: 340px;
+    padding-right: 6px;         /* little room for scrollbar */
+  }
+  
+  .sessions-title {
     margin: 0;
-    font-size: 33px;
-    color: #221C39;
-}
+    font-size: 1.1rem;
+  }
+  
+  .sessions-empty {
+    opacity: .7;
+  }
+  

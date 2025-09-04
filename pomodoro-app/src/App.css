@@ -18,7 +18,14 @@ main {
 .task-session-container {
   display: flex;
   flex-direction: row;
-
-  place-items: flex-start;
+  place-items: flex-end;
   margin-top: 60px;
+}
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  justify-content: flex-end;
+
 }

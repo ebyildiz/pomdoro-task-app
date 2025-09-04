@@ -5,7 +5,8 @@ button {
     align-items: center;
     justify-content: center;
     color: white;
-    background-color: #7972F8;
+    background-color: #a98aeb;
+    border-bottom: 3px solid #916be4;
     border: none;
     border-radius: 30px;
     font-family: Inter;
