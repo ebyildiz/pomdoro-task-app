@@ -17,7 +17,7 @@ A study app with the famous Pomodoro technique
 
 ![til](./src/live-demo.gif)
 
-![Purple Banner](https://singlecolorimage.com/get/c59af9/1000x10)
+![Purple Banner](https://singlecolorimage.com/get/c59af9/1000x5)
 
 ## What it does
 
@@ -27,7 +27,7 @@ A study app with the famous Pomodoro technique
 - keep track of tasks that are completed so user can see how many tasks they have completed in each task 
 
 
-![Purple Banner](https://singlecolorimage.com/get/c59af9/1000x10)
+![Purple Banner](https://singlecolorimage.com/get/c59af9/1000x5)
 
 ## Why I built it
 
