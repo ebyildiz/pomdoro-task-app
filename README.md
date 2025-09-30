@@ -1,4 +1,4 @@
-![Purple Banner](https://singlecolorimage.com/get/fac0e1/1000x50)
+![Purple Banner](https://singlecolorimage.com/get/c59af9/1000x50)
 
 # Pomodoro Task App
 
@@ -17,7 +17,7 @@ A study app with the famous Pomodoro technique
 
 ![til](./src/live-demo.gif)
 
-![Purple Banner](https://singlecolorimage.com/get/fac0e1/1000x50)
+![Purple Banner](https://singlecolorimage.com/get/c59af9/1000x50)
 
 ## What it does
 
@@ -27,7 +27,7 @@ A study app with the famous Pomodoro technique
 - keep track of tasks that are completed so user can see how many tasks they have completed in each task 
 
 
-![Purple Banner](https://singlecolorimage.com/get/fac0e1/1000x50)
+![Purple Banner](https://singlecolorimage.com/get/c59af9/1000x50)
 
 ## Why I built it
 
