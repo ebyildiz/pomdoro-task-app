@@ -13,7 +13,7 @@ A study app with the famous Pomodoro technique
   - **Postgres (Neon) via Prisma** for data,
   - **Firebase Auth** for authentication
 
-🪻 Live app: [https://mycutechat.netlify.app](https://mycutechat.netlify.app)  
+🪻 Live app: [https://pomodoro-cute.netlify.app](https://pomodoro-cute.netlify.app)  
 
 ![til](./src/live-demo.gif)
 
